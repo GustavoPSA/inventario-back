@@ -4,23 +4,26 @@ Este proyecto permite gestionar el inventario y depreciacion de los activos de u
 
 ## Tabla de Contenidos
 
-[TOCM]
-
-[TOC]
+- [Tecnologias](#tecnologias)
+- [Instalacion y Ejecucion](#instalacion-y-ejecucion)
+- [Base De Datos](#base-de-datos)
+- [Pruebas Unitarias](#pruebas-unitarias)
+- [Diagramas](#diagramas)
 
 ##Tecnologias
 
 Tecnologias utilizadas en el proyecto:
 
- - [JDK]: Version 19.0.1
+ - [JDK]: Version 19.0.2
  - [maven]: Version 4.0.0
  - [mapstruct]: 1.5.3.Final
  - [Spring Boot]: 3.1.1
+ - [lombok]: 1.18.28
+ - [Swagger UI]: Version 2.1.0
+ - [junit]: Version 5.9.1
  - [H2]
- - [lombok]
- - [junit]
  - [JPA]
- - [Swagger UI] Version 2.1.0
+ 
  
 ##Instalacion y Ejecucion
  
@@ -39,6 +42,10 @@ Esta aplicacion, cuenta con una base de datos H2, la cual tiene la sisguientes t
 
  - Equipo: En esta tabla se almacena la informacion de los equipos del inventario, importante tener en cuenta que en la edicion, no se permite modificar los campos Valor Compra y Valor depreciacion
  - Depreciacion: En esta tablka se almacena el porcentaje de depreciacion por cada equipo correspondiente a cada año, es importante tener en cuenta que a traves de la aplicacion solo s epodra realizar registro y consulta de informacion en esta tabla
+ 
+##Pruebas Unitarias
+
+- El proyceto cuenta con pruebas unitarias, las cuales se pueden encontrar en la ruta src/test/java. Para ejecutarlas se debe hacer clik derecho en el proyecto -> Run AS -> JUnit Test
  
 ##Diagramas
 
