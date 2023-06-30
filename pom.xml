@@ -48,12 +48,27 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+		    <groupId>org.junit.vintage</groupId>
+		    <artifactId>junit-vintage-engine</artifactId>
+		    <scope>test</scope>
+		    <exclusions>
+		        <exclusion>
+		            <groupId>org.hamcrest</groupId>
+		            <artifactId>hamcrest-core</artifactId>
+		        </exclusion>
+		    </exclusions>
+		</dependency>
+		<dependency>
 		    <groupId>org.mapstruct</groupId>
 		    <artifactId>mapstruct</artifactId>
 		    <version>1.5.3.Final</version> 
 		</dependency>
+		<dependency>
+		    <groupId>org.springdoc</groupId>
+		    <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+		    <version>2.1.0</version>
+		</dependency>
 	</dependencies>
-
 	<build>
 		<plugins>
 			<plugin>
@@ -83,7 +98,36 @@
 			        </annotationProcessorPaths>
 			    </configuration>
 			</plugin>
+			<plugin>
+			   <groupId>org.jacoco</groupId>
+			   <artifactId>jacoco-maven-plugin</artifactId>
+			   <version>0.8.6</version>
+			   <configuration>
+			      <destFile>${basedir}/target/coverage-reports/jacoco-unit.exec</destFile>
+			      <dataFile>${basedir}/target/coverage-reports/jacoco-unit.exec</dataFile>
+			      <output>file</output>
+			      <append>true</append>
+			      <excludes>
+			         <exclude>*MethodAccess</exclude>
+			      </excludes>
+			   </configuration>
+			   <executions>
+			      <execution>
+			         <id>jacoco-initialize</id>
+			         <goals>
+			            <goal>prepare-agent</goal>
+			         </goals>
+			         <phase>test-compile</phase>
+			      </execution>
+			      <execution>
+			         <id>jacoco-site</id>
+			         <phase>verify</phase>
+			         <goals>
+			            <goal>report</goal>
+			         </goals>
+			      </execution>
+			   </executions>
+			</plugin>			
 		</plugins>
 	</build>
-
 </project>
